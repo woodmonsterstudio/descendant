@@ -18,7 +18,8 @@ class MembersTableSeeder extends Seeder
 	            'user_id' => 1,
 	            'name' => $row['name'],
 	            'local_name' => $row['local_name']??null,
-	            'dob' => $row['dob']??Carbon::now(),
+                'dob' => $row['dob']??Carbon::now(),
+	            'chinese_zodiac' => $row['chinese_zodiac']??null,
 	        ]);
     	}
 

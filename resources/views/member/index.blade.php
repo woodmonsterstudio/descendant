@@ -14,6 +14,7 @@
 						<th>Local Name</th>
 						<th>DOB</th>
 						<th>Age</th>
+						<th>ChineseZodiac</th>
 						<th class="text-center">Spouse</th>
 						<th class="text-center">Children</th>
 						<th class="text-center">Image</th>
@@ -28,6 +29,7 @@
 						<td>{{$row->local_name}}</td>
 						<td>{{$row->dob}}</td>
 						<td>{{$row->age}}</td>
+						<td>{{$row->chinese_zodiac}}</td>
 						<td class="text-center">
 							@if($row->spouse->count())
 							<a class="pointer fa fa-info-circle" data-toggle="popover" data-placement="bottom" data-container="body" data-trigger="hover" data-content="{{$row->spouse->pluck('name')->implode('<br>')}}">View</a>

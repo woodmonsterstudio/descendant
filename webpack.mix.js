@@ -13,3 +13,26 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
+
+// mix.scripts([
+// 	'node_modules/semantic-ui-css/semantic.min.js',
+//     'public/js/app.js',
+// ], 'public/js/all.js');
+
+// mix.styles([
+// 	'node_modules/semantic-ui-css/semantic.min.css',
+//     'public/css/app.css',
+// ], 'public/css/all.css');
+
+// mix.scripts([
+//     'node_modules/semantic-ui-css/semantic.min.js',
+// ], 'public/js/guest.js');
+
+// mix.styles([
+//     'node_modules/semantic-ui-css/semantic.min.css',
+//     'node_modules/semantic-ui-css/semantic.min.css',
+// ], 'public/css/guest.css');
+
+if (mix.inProduction()) {
+    mix.version();
+}

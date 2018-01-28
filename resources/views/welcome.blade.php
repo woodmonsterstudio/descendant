@@ -50,12 +50,14 @@
             <li class="nav-item">
               <a class="nav-link" href="{{route('login',['demo'=>'true'])}}">Demo</a>
             </li>
-            {{-- <li class="nav-item">
+            @if(env('APP_ENV'))
+            <li class="nav-item">
               <a class="nav-link" href="index.html">Log In</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">Register</a>
-            </li> --}}
+            </li>
+            @endif
           </ul>
         </div>
       </div>

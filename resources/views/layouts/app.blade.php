@@ -78,6 +78,9 @@
                 </div>
             </div>
         </nav>
+        <div class="alert alert-danger">
+            <strong>Warning!</strong> This is Demo Site. Data will be reset daily.
+        </div>
         @include('flash::message')
         @yield('content')
     </div>

@@ -1,8 +1,10 @@
 <?php
 
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+
 
 class CreateMemberTable extends Migration
 {
@@ -35,6 +37,11 @@ class CreateMemberTable extends Migration
     public function down()
     {
         Schema::dropIfExists('members');
-        Storage::delete('public/*');
+
+        if(env('APP_ENV') == 'demo') {
+            $file = new Filesystem;
+            $file->cleanDirectory('storage/app/public/');
+        }
+
     }
 }

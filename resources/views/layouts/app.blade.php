@@ -14,14 +14,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/orgchart/2.1.0/css/jquery.orgchart.min.css" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- Descendant -->
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:728px;height:90px"
-         data-ad-client="ca-pub-1010545338572807"
-         data-ad-slot="2456662636"></ins>
     <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1010545338572807",
+        enable_page_level_ads: true
+      });
     </script>
 </head>
 <body>

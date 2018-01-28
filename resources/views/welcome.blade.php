@@ -47,10 +47,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+            @if(env('APP_ENV') == 'demo')
             <li class="nav-item">
               <a class="nav-link" href="{{route('login',['demo'=>'true'])}}">Demo</a>
             </li>
-            @if(env('APP_ENV'))
+            @endif
+            @if(env('APP_ENV') == 'production')
             <li class="nav-item">
               <a class="nav-link" href="index.html">Log In</a>
             </li>

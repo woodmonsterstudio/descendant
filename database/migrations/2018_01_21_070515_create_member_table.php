@@ -35,5 +35,6 @@ class CreateMemberTable extends Migration
     public function down()
     {
         Schema::dropIfExists('members');
+        Storage::delete('public/');
     }
 }

@@ -54,10 +54,10 @@
             @endif
             @if(env('APP_ENV') == 'production')
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Log In</a>
+              <a class="nav-link" href="{{route('login')}}">Log In</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">Register</a>
+              <a class="nav-link" href="{{route('register')}}">Register</a>
             </li>
             @endif
           </ul>

@@ -33,6 +33,10 @@ mix.js('resources/assets/js/app.js', 'public/js')
 //     'node_modules/semantic-ui-css/semantic.min.css',
 // ], 'public/css/guest.css');
 
+mix.copy('resources/assets/css/clean-blog.min.css','public/css')
+mix.copy('resources/assets/js/clean-blog.min.js','public/js')
+mix.copy('resources/assets/images/home-bg.jpg','public/images')
+
 if (mix.inProduction()) {
     mix.version();
 }

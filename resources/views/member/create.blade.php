@@ -5,8 +5,7 @@
     <a class="btn btn-default" href="{{route('member.index')}}" role="button">Back</a>
     <br>
     <br>
-    <form action="{{route('member.update',$member->id)}}" method="POST" role="form" enctype="multipart/form-data">
-        <input type="hidden" name="_method" value="PUT">
+    <form action="{{route('member.store')}}" method="POST" role="form" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -39,7 +38,7 @@
                 <div class="form-group{{ $errors->has('dob') ? ' has-error' : '' }}">
                     <label class="col-sm-4">DOB</label>
                     <div class="col-sm-8">
-                            <input type="text" class="input-sm form-control datepicker" name="dob" value="{{$member->dob or old('dob')}}">
+                            <input type="text" class="input-sm form-control datepicker" name="dob" value="{{$member->dob or old('dob')}}" placeholder="YYYY-MM-DD">
                     </div>
                     @if ($errors->has('dob'))
                     <span class="help-block">
@@ -57,14 +56,14 @@
                     <div class="col-sm-8">
                         <select name="relation_spouse[]" class="form-control bs-select2" multiple="multiple">
                             @foreach($members->all() as $row)
-                            <option value="{{$row->id}}" {{ in_array($row->id, $member->spouse->pluck('id')->toArray()) ? 'selected' : null }}>{{$row->name}}</option>
+                            <option value="{{$row->id}}">{{$row->name}}</option>
                             @endforeach
                         </select>
                             {{-- <input type="text" class="input-sm form-control" name="name" value="{{$member->name or old('name')}}"> --}}
                     </div>
-                    @if ($errors->has('name'))
+                    @if ($errors->has('relation_spouse'))
                     <span class="help-block">
-                            <strong>{{ $errors->first('name') }}</strong>
+                            <strong>{{ $errors->first('relation_spouse') }}</strong>
                     </span>
                     @endif
                 </div>
@@ -75,13 +74,13 @@
                     <div class="col-sm-8">
                         <select name="relation_children[]" class="form-control bs-select2" multiple="multiple">
                             @foreach($members->all() as $row)
-                            <option value="{{$row->id}}" {{ in_array($row->id, $member->children->pluck('id')->toArray()) ? 'selected' : null }}>{{$row->name}}</option>
+                            <option value="{{$row->id}}">{{$row->name}}</option>
                             @endforeach
                         </select>
                     </div>
-                    @if ($errors->has('name'))
+                    @if ($errors->has('relation_children'))
                     <span class="help-block">
-                            <strong>{{ $errors->first('name') }}</strong>
+                            <strong>{{ $errors->first('relation_children') }}</strong>
                     </span>
                     @endif
                 </div>
@@ -96,14 +95,6 @@
         </div>
         <br>
         <button type="submit" class="btn btn-primary pull-right">Save</button>
-    </form>
-    <br>
-    <br>
-    <br>
-    <form action="{{route('member.destroy',$member->id)}}" method="POST" role="form">
-        <input type="hidden" name="_method" value="DELETE">
-        {{csrf_field()}}
-        <button type="submit" class="btn btn-danger pull-right">Delete</button>
     </form>
     
 </div>
@@ -133,11 +124,7 @@ $(document).ready(function() {
         removeTitle: 'Cancel or reset changes',
         elErrorContainer: '#kv-avatar-errors-1',
         msgErrorClass: 'alert alert-block alert-danger',
-        @if($member->file)
-        defaultPreviewContent: '<img src="/{{$member->file}}" width="200px" alt="Your Avatar">',
-        @else
         defaultPreviewContent: '',
-        @endif
         layoutTemplates: {main2: '{preview} ' + '{browse}'},
         allowedFileExtensions: ["jpg", "png", "gif"]
     });

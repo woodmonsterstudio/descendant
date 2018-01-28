@@ -4,6 +4,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+            @if(request()->demo ?? false)
+            <div class="text-center">
+                <span class="label label-danger">Demo</span>
+            </div>
+            @endif
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
 
@@ -15,7 +20,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                <input id="email" type="email" class="form-control" name="email" @if(request()->demo ?? false) ? value="demo@localhost.com" @else value="{{ old('email') }}" @endif required autofocus @if(request()->demo ?? false) ? placeholder="demo@localhost.com" @endif>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -29,7 +34,7 @@
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password" class="form-control" name="password" @if(request()->demo ?? false) ? value="demo" @endif required @if(request()->demo ?? false) ? placeholder="demo" @endif>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">

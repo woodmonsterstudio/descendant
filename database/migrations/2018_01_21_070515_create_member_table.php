@@ -15,10 +15,12 @@ class CreateMemberTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->index()->foreign()->references("id")->on("users");
+            $table->integer('family_id')->unsigned()->index()->foreign()->references("id")->on("familys");
             $table->string('name');
             $table->string('local_name')->nullable();
             $table->date('dob')->nullable();
+            $table->enum('gender',['Male','Female'])->nullable();
+            $table->integer('order')->default(0);
             $table->string('chinese_zodiac')->nullable();
             $table->string('file')->nullable();
             $table->timestamps();

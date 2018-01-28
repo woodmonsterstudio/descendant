@@ -2,11 +2,13 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-	<a class="btn btn-default pull-left" href="{{route('home')}}" role="button">Home</a>
-
 	<div class="panel panel-default">
+		<div class="panel-header">
+			<a class="btn btn-link text-left" href="{{route('home')}}" role="button">Home</a>
+			<a class="btn btn-link pull-right" href="{{route('member.create')}}" role="button">New Member</a>
+		</div>
 		<div class="panel-body">
-			<table class="table table-condensed table-hover">
+			<table class="table table-condensed table-hover table-responsive">
 				<thead>
 					<tr>
 						<th>No</th>

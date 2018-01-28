@@ -26,7 +26,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        //
+        return view('member.create');
     }
 
     /**
@@ -37,8 +37,41 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-        return redirect()->route('home');
+        $this->validate($request,[
+            'name'=>'required',
+        ]);
+
+        $member = new Member($request->all());
+        $member->family_id = 1;
+        $member->save();
+
+        if($request->relation_spouse) {
+            $relation_spouse = collect($request->relation_spouse)->mapWithKeys(function ($row) {
+                return [$row => ['spouse'=>1]];
+            });
+            $member->spouse()->sync($relation_spouse);
+        } else {
+            $member->spouse()->detach();
+        }
+
+        if($request->relation_children) {
+            $relation_children = collect($request->relation_children)->mapWithKeys(function ($row) {
+                return [$row => ['spouse'=>0]];
+            });
+            $member->children()->sync($relation_children);
+        } else {
+            $member->children()->detach();
+        }
+        
+        if($request->file) {
+            $filename = snake_case($member->name, $delimiter = '_').".".$request->file->getClientOriginalExtension();
+            Storage::put('public/'.$filename,File::get($request->file));    
+            $member->file = 'storage/'.$filename;
+            $member->save();
+        }
+
+        flash()->success('Success!');
+        return redirect()->route('member.edit',$member->id);
     }
 
     /**
@@ -125,7 +158,7 @@ class MemberController extends Controller
         
         if($request->file) {
             $filename = snake_case($member->name, $delimiter = '_').".".$request->file->getClientOriginalExtension();
-            Storage::put('public/'.$filename,File::get($request->file));    
+            Storage::put('public/'.$filename,File::get($request->file));
             $member->file = 'storage/'.$filename;
             $member->save();
         }
@@ -143,6 +176,11 @@ class MemberController extends Controller
      */
     public function destroy(Member $member)
     {
-        //
+        Storage::delete('public/'.basename($member->file));
+        if($member->delete()) {
+            flash()->success('Success!');
+        }
+
+        return redirect()->route('member.index');
     }
 }

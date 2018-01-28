@@ -98,11 +98,12 @@
                 Frameworks, Libraries, Templates
               </h2>
               <h3 class="post-subtitle"></h3>
-                <li><a class="btn-link" href="https://laravel.com/" role="button">Laravel 5.5</a></li>
-                <li><a class="btn-link" href="https://jquery.com/" role="button">Jquery</a></li>
-                <li><a class="btn-link" href="https://getbootstrap.com/" role="button">Bootstrap 4</a></li>
-                <li><a class="btn-link" href="https://startbootstrap.com/template-overviews/clean-blog/" role="button">Start Bootstrap - Clean Blog</a></li>
-                <li><a class="btn-link" href="https://www.flickr.com/photos/68716695@N06/" role="button">Landing Page Image - agilemktg1</a></li>
+                <li><a class="btn-link" target="_blank" href="https://laravel.com/" role="button">Laravel 5.5</a></li>
+                <li><a class="btn-link" target="_blank" href="https://jquery.com/" role="button">Jquery</a></li>
+                <li><a class="btn-link" target="_blank" href="https://getbootstrap.com/" role="button">Bootstrap 4</a></li>
+                <li><a class="btn-link" target="_blank" href="https://startbootstrap.com/template-overviews/clean-blog/" role="button">Start Bootstrap - Clean Blog</a></li>
+                <li><a class="btn-link" target="_blank" href="https://www.flickr.com/photos/68716695@N06/" role="button">Landing Page Image</a></li>
+                <li><a class="btn-link" target="_blank" href="http://plugins.krajee.com/file-input" role="button">Bootstrap File Input</a></li>
             </a>
             <p class="post-meta"></p>
           </div>

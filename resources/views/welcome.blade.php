@@ -51,6 +51,9 @@
             <li class="nav-item">
               <a class="nav-link" href="{{route('login',['demo'=>'true'])}}">Demo</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/woodmonsterstudio/descendant">GitHub</a>
+            </li>
             @endif
             @if(env('APP_ENV') == 'production')
             <li class="nav-item">

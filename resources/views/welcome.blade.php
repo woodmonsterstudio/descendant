@@ -68,7 +68,7 @@
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
-              <h1>Descendant</h1>
+              <h1>{{env('APP_NAME')}}</h1>
               <span class="subheading">Track Your Roots</span>
             </div>
           </div>
@@ -105,6 +105,7 @@
                 <li><a class="btn-link" target="_blank" href="https://www.flickr.com/photos/68716695@N06/" role="button">Landing Page Image</a></li>
                 <li><a class="btn-link" target="_blank" href="http://plugins.krajee.com/file-input" role="button">Bootstrap File Input</a></li>
                 <li><a class="btn-link" target="_blank" href="https://github.com/dabeng/OrgChart" role="button">OrgChart</a></li>
+                <li><a class="btn-link" target="_blank" href="https://select2.org/" role="button">Select2</a></li>
             </a>
             <p class="post-meta"></p>
           </div>
@@ -119,32 +120,6 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <ul class="list-inline text-center">
-              {{-- <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li> --}}
-            </ul>
             <p class="copyright text-muted">Copyright &copy; Descendant.my {{Carbon::now()->format('Y')}}</p>
           </div>
         </div>
@@ -159,99 +134,4 @@
     <script src="js/clean-blog.min.js"></script>
 
   </body>
-
 </html>
-
-{{-- 
-
-
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-        
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Descendant
-                </div>
-                <div class="links">
-                    <a>Finding Your Roots</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html> --}}

@@ -27,11 +27,13 @@
     <link href="css/clean-blog.min.css" rel="stylesheet">
 
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Descendant -->
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:728px;height:90px"
+         data-ad-client="ca-pub-1010545338572807"
+         data-ad-slot="2456662636"></ins>
     <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-1010545338572807",
-        enable_page_level_ads: true
-      });
+    (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </head>
 

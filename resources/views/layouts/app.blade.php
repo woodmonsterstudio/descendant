@@ -78,9 +78,11 @@
                 </div>
             </div>
         </nav>
+        @if(env('APP_ENV') == 'demo')
         <div class="alert alert-danger">
             <strong>Warning!</strong> This is Demo Site. Data will be reset daily.
         </div>
+        @endif
         @include('flash::message')
         @yield('content')
     </div>
